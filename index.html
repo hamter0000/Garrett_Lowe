@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111112">
+<title>STILLROOM — Archive</title>
+<style>
+:root{--bg:#111112;--surface:#18191a;--text:#ededeb;--muted:#999a9b;--line:#343536;--silver:#c8cacc;--serif:Georgia,"Times New Roman",serif;--sans:Arial,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.7 var(--sans)}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button{color:inherit;cursor:pointer}img{display:block;width:100%}.wrap{width:min(1120px,calc(100% - 48px));margin:auto}
+header{position:sticky;top:0;z-index:5;background:rgba(17,17,18,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.header-inner{height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font:26px/1 var(--serif);letter-spacing:-.05em}.brand small{font:9px var(--sans);letter-spacing:.15em;color:var(--muted);margin-left:10px}.nav{display:flex;gap:24px;color:var(--muted);font-size:11px;letter-spacing:.08em}.nav a:hover{color:var(--text)}
+main{padding-bottom:60px}.intro{padding:78px 0 58px;border-bottom:1px solid var(--line)}.eyebrow{font-size:10px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}.intro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:end;margin-top:18px}h1{font:clamp(58px,9vw,112px)/.9 var(--serif);font-weight:400;letter-spacing:-.07em;margin:0}h1 span{color:var(--silver);font-style:italic}.intro-copy{max-width:360px;color:#c1c1bf;font-size:13px;line-height:2;margin:0 0 4px}
+.section{padding:56px 0;border-bottom:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}.section-label{font-size:10px;letter-spacing:.15em;color:var(--muted);margin-bottom:8px}h2{font:38px/1.1 var(--serif);font-weight:400;letter-spacing:-.04em;margin:0}.section-desc{color:var(--muted);font-size:11px;margin:0}
+.profile{display:grid;grid-template-columns:140px 1fr;gap:28px;padding:25px 0 0;border-top:1px solid var(--line)}.profile-mark{font:13px var(--serif);color:var(--muted)}.profile h3{font:25px/1.2 var(--serif);font-weight:400;margin:0 0 12px}.profile p{max-width:680px;color:#c7c7c4;margin:0 0 12px;font-size:12px;line-height:2}.profile-details{display:flex;gap:24px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:10px;color:var(--muted)}.profile-details strong{font-weight:400;color:var(--text);margin-right:7px}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}.filters{display:flex;gap:6px;flex-wrap:wrap}.filter{background:transparent;border:1px solid var(--line);padding:7px 11px;font-size:9px;letter-spacing:.1em;color:var(--muted)}.filter.active,.filter:hover{background:var(--silver);color:#111;border-color:var(--silver)}.search{width:220px;max-width:100%;background:transparent;border:1px solid var(--line);padding:9px 11px;color:var(--text);outline:none;font-size:11px}.search:focus{border-color:var(--silver)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.item{border:1px solid var(--line);background:var(--surface);min-width:0;transition:border-color .2s,transform .2s}.item:hover{border-color:#858789;transform:translateY(-2px)}.thumb{display:block;position:relative;padding:0;width:100%;border:0;background:#202122;overflow:hidden}.thumb img{aspect-ratio:1.16/1;object-fit:cover;filter:grayscale(100%);opacity:.86;transition:transform .45s,opacity .2s}.item:hover .thumb img{transform:scale(1.035);opacity:1}.number{position:absolute;top:10px;left:10px;background:rgba(17,17,18,.86);padding:3px 7px;font:11px var(--serif)}.item-info{padding:14px 15px 15px}.item-meta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:9px;letter-spacing:.08em;text-transform:uppercase}.item-title{font:23px/1.2 var(--serif);margin:8px 0 5px;font-weight:400}.item-desc{font-size:10px;color:var(--muted);margin:0}.empty{display:none;text-align:center;color:var(--muted);padding:35px;border:1px solid var(--line);font-size:12px}
+footer{padding:23px 0 30px;color:var(--muted);font-size:9px;letter-spacing:.1em}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.modal{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.82);backdrop-filter:blur(7px)}.modal.open{display:flex}.modal-box{position:relative;width:min(900px,100%);max-height:92vh;overflow:auto;background:#151617;border:1px solid #454647}.modal-close{position:sticky;top:0;float:right;z-index:2;width:40px;height:40px;margin-bottom:-40px;border:0;background:rgba(12,12,12,.9);font-size:22px}.modal-layout{display:grid;grid-template-columns:1fr 1fr}.modal-preview{background:#202122;min-height:350px}.modal-preview img{height:100%;min-height:350px;max-height:70vh;object-fit:contain;filter:grayscale(100%)}.modal-content{padding:30px;min-width:0}.modal-meta{font-size:9px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}.modal-title{font:35px/1.15 var(--serif);font-weight:400;margin:10px 0 8px}.modal-description{font-size:11px;color:#b9b9b6;margin:0 0 24px;line-height:1.8}.prompt-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px}.prompt-head label{font-size:10px;letter-spacing:.13em;color:var(--silver)}.copy-btn{background:transparent;border:1px solid #77797b;padding:7px 10px;font-size:10px;white-space:nowrap}.copy-btn:hover{background:var(--silver);color:#111;border-color:var(--silver)}.prompt{width:100%;min-height:190px;resize:vertical;background:#0f1011;color:#d6d6d3;border:1px solid var(--line);padding:13px;font:11px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;outline:none}.prompt:focus{border-color:#858789}.copy-status{min-height:18px;margin-top:7px;color:var(--muted);font-size:10px}.modal-tip{font-size:9px;color:var(--muted);margin-top:15px}
+@media(max-width:760px){.wrap{width:calc(100% - 32px)}.header-inner{height:62px}.brand{font-size:23px}.brand small{display:none}.nav{gap:15px;font-size:10px}.intro{padding:54px 0 40px}.intro-grid{grid-template-columns:1fr;gap:22px}.intro-copy{max-width:480px}.section{padding:42px 0}.profile{grid-template-columns:90px 1fr;gap:18px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.modal-layout{grid-template-columns:1fr}.modal-preview,.modal-preview img{min-height:0;max-height:40vh}.modal-content{padding:22px}.prompt{min-height:150px}}
+@media(max-width:480px){.wrap{width:calc(100% - 24px)}.nav{gap:11px;font-size:9px}.intro{padding-top:42px}h1{font-size:clamp(54px,15vw,76px)}.section-head{align-items:start;flex-direction:column;gap:8px}h2{font-size:33px}.profile{grid-template-columns:1fr;gap:10px}.profile-mark{font-size:10px}.profile h3{font-size:23px}.profile-details{gap:10px 16px}.tools{align-items:stretch}.filters{width:100%}.search{width:100%}.grid{grid-template-columns:1fr;gap:10px}.item{display:grid;grid-template-columns:42% 1fr}.thumb img{height:100%;aspect-ratio:auto;min-height:145px}.item-info{display:flex;flex-direction:column;justify-content:center;padding:12px}.item-title{font-size:21px}.modal{padding:10px}.modal-title{font-size:29px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap header-inner">
+  <a class="brand" href="#top">STILLROOM <small>PERSONAL ARCHIVE</small></a>
+  <nav class="nav" aria-label="메뉴"><a href="#profile">PROFILE</a><a href="#archive">ARCHIVE</a></nav>
+</div></header>
+<main id="top">
+  <section class="intro"><div class="wrap">
+    <div class="eyebrow">PERSONAL ARCHIVE / VOL. 01</div>
+    <div class="intro-grid">
+      <h1>Collecting<br><span>fragments.</span></h1>
+      <p class="intro-copy">좋아하는 것과 만든 것들을 모아두는 개인 아카이브입니다. 필요한 자료를 찾아보고, 프롬프트를 복사할 수 있습니다.</p>
+    </div>
+  </div></section>
+
+  <section class="section" id="profile"><div class="wrap">
+    <div class="section-head"><div><div class="section-label">01 / PROFILE</div><h2>About me</h2></div></div>
+    <div class="profile">
+      <div class="profile-mark">INTRODUCTION</div>
+      <div>
+        <h3>여기에 이름을 입력하세요.</h3>
+        <p>이곳에 자신을 소개하는 글을 적어주세요. 좋아하는 분야, 창작하는 것, 자료를 모으는 이유 등 원하는 내용을 자유롭게 작성할 수 있습니다. 사진 없이 글만으로 구성되어 있습니다.</p>
+        <div class="profile-details"><span><strong>INTEREST</strong> 창작 · 이미지 · 프롬프트</span><span><strong>LINK</strong> <a href="https://x.com/" target="_blank" rel="noopener">X / SNS ↗</a></span><span><strong>CONTACT</strong> <a href="mailto:hello@example.com">이메일 ↗</a></span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="section" id="archive"><div class="wrap">
+    <div class="section-head"><div><div class="section-label">02 / COLLECTION</div><h2>Archive</h2></div><p class="section-desc">캐릭터는 외형 프롬프트, 프롬프트는 구도·배경·포즈용 자료입니다.</p></div>
+    <div class="tools">
+      <div class="filters" role="tablist" aria-label="아카이브 종류">
+        <button class="filter active" data-filter="character" type="button" role="tab" aria-selected="true">CHARACTER</button>
+        <button class="filter" data-filter="prompt" type="button" role="tab" aria-selected="false">PROMPT</button>
+      </div>
+      <input class="search" id="search" type="search" placeholder="현재 탭에서 검색..." aria-label="자료 검색">
+    </div>
+    <div class="grid" id="grid">
+      <!-- 자료 카드: 같은 형식을 유지하면서 제목, 이미지, 설명, 프롬프트를 바꿔 추가하세요. -->
+      <article class="item" data-category="character" data-search="ash character 캐릭터 공유">
+        <button class="thumb open-detail" type="button" aria-label="Ash 상세 보기"
+          data-title="Ash" data-category="CHARACTER" data-date="FILE 001"
+          data-description="캐릭터 외형 프롬프트를 공유하는 자료입니다. 외형을 설명하는 태그를 이곳에 적어주세요."
+          data-image="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=85"
+          data-prompt="adult man, handsome face, sharp eyes, dark tousled hair, strong build, detailed character design, monochrome lighting">
+          <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=80" alt="Ash 썸네일"><span class="number">01</span>
+        </button>
+        <div class="item-info"><div class="item-meta"><span>CHARACTER</span><span>01</span></div><h3 class="item-title">Ash</h3><p class="item-desc">캐릭터 공유</p></div>
+      </article>
+      <article class="item" data-category="character" data-search="morrow character 캐릭터 공유">
+        <button class="thumb open-detail" type="button" aria-label="Morrow 상세 보기"
+          data-title="Morrow" data-category="CHARACTER" data-date="FILE 002"
+          data-description="두 번째 캐릭터 외형 자료입니다. 캐릭터의 헤어, 눈, 체형, 인상 등 외형 프롬프트를 넣어주세요."
+          data-image="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=85"
+          data-prompt="adult male character, swept-back black hair, narrow eyes, defined jawline, broad shoulders, elegant features, character reference">
+          <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80" alt="Morrow 썸네일"><span class="number">02</span>
+        </button>
+        <div class="item-info"><div class="item-meta"><span>CHARACTER</span><span>02</span></div><h3 class="item-title">Morrow</h3><p class="item-desc">캐릭터 공유</p></div>
+      </article>
+      <article class="item" data-category="character" data-search="noir character 캐릭터 공유">
+        <button class="thumb open-detail" type="button" aria-label="Noir 상세 보기"
+          data-title="Noir" data-category="CHARACTER" data-date="FILE 003"
+          data-description="세 번째 캐릭터 외형 자료입니다. 실제 공유할 캐릭터의 외형 프롬프트로 교체하면 됩니다."
+          data-image="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=85"
+          data-prompt="adult character, silver eyes, dark hair, calm expression, mature features, detailed face, refined character design">
+          <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80" alt="Noir 썸네일"><span class="number">03</span>
+        </button>
+        <div class="item-info"><div class="item-meta"><span>CHARACTER</span><span>03</span></div><h3 class="item-title">Noir</h3><p class="item-desc">캐릭터 공유</p></div>
+      </article>
+      <article class="item" data-category="prompt" data-search="night study prompt 프롬프트 공유">
+        <button class="thumb open-detail" type="button" aria-label="Night Study 상세 보기"
+          data-title="Night Study" data-category="PROMPT" data-date="FILE 004"
+          data-description="구도·배경·포즈 중심의 프롬프트입니다. 캐릭터 외형이 아니라 장면 연출용 프롬프트를 넣어주세요."
+          data-image="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=85"
+          data-prompt="dynamic composition, cinematic low angle, dim night lighting, wet pavement, dramatic shadows, one hand in pocket, looking away from camera">
+          <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=80" alt="Night Study 썸네일"><span class="number">01</span>
+        </button>
+        <div class="item-info"><div class="item-meta"><span>PROMPT</span><span>01</span></div><h3 class="item-title">Night Study</h3><p class="item-desc">프롬프트 공유</p></div>
+      </article>
+      <article class="item" data-category="prompt" data-search="forest frame prompt 프롬프트 공유">
+        <button class="thumb open-detail" type="button" aria-label="Forest Frame 상세 보기"
+          data-title="Forest Frame" data-category="PROMPT" data-date="FILE 005"
+          data-description="배경과 포즈를 조합한 프롬프트입니다. 숲, 조명, 카메라 앵글 등 장면에 필요한 태그를 적어주세요."
+          data-image="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=85"
+          data-prompt="dense conifer forest, misty atmosphere, medium shot, over-the-shoulder angle, relaxed standing pose, hands visible, muted cinematic lighting">
+          <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80" alt="Forest Frame 썸네일"><span class="number">02</span>
+        </button>
+        <div class="item-info"><div class="item-meta"><span>PROMPT</span><span>02</span></div><h3 class="item-title">Forest Frame</h3><p class="item-desc">프롬프트 공유</p></div>
+      </article>
+      <article class="item" data-category="prompt" data-search="studio light prompt 프롬프트 공유">
+        <button class="thumb open-detail" type="button" aria-label="Studio Light 상세 보기"
+          data-title="Studio Light" data-category="PROMPT" data-date="FILE 006"
+          data-description="인물의 외형과 별개로 사용할 수 있는 구도·배경·포즈 프롬프트입니다."
+          data-image="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=85"
+          data-prompt="editorial studio, seated pose, three-quarter view, looking down, soft side lighting, minimalist dark background, waist-up composition">
+          <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80" alt="Studio Light 썸네일"><span class="number">03</span>
+        </button>
+        <div class="item-info"><div class="item-meta"><span>PROMPT</span><span>03</span></div><h3 class="item-title">Studio Light</h3><p class="item-desc">프롬프트 공유</p></div>
+      </article>
+    </div>
+    <div class="empty" id="empty">검색 결과가 없습니다.</div>
+  </div></section>
+</main>
+<footer><div class="wrap footer-inner"><span>STILLROOM / PERSONAL ARCHIVE</span><span>© <span id="year"></span></span></div></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" type="button" aria-label="닫기">×</button>
+    <div class="modal-layout">
+      <div class="modal-preview"><img id="detailImage" src="" alt=""></div>
+      <div class="modal-content">
+        <div class="modal-meta" id="detailMeta"></div><h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-description" id="detailDescription"></p>
+        <div class="prompt-head"><label for="promptText">PROMPT</label><button class="copy-btn" id="copyPrompt" type="button">COPY ↗</button></div>
+        <textarea class="prompt" id="promptText" spellcheck="false" aria-label="프롬프트"></textarea>
+        <div class="copy-status" id="copyStatus" aria-live="polite"></div>
+        <div class="modal-tip">프롬프트를 수정한 뒤 복사할 수도 있습니다.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const filterButtons = [...document.querySelectorAll('.filter')];
+const items = [...document.querySelectorAll('.item')];
+const search = document.getElementById('search');
+const empty = document.getElementById('empty');
+let active = 'character';
+function updateItems(){
+  const q = search.value.trim().toLowerCase(); let count = 0;
+  items.forEach(item => {
+    const matchCategory = item.dataset.category === active;
+    const matchText = !q || (item.dataset.search + ' ' + item.innerText).toLowerCase().includes(q);
+    const show = matchCategory && matchText;
+    item.style.display = show ? '' : 'none'; if(show) count++;
+  });
+  empty.style.display = count ? 'none' : 'block';
+}
+filterButtons.forEach(btn => btn.addEventListener('click', () => {
+  active = btn.dataset.filter;
+  filterButtons.forEach(b => { b.classList.toggle('active', b === btn); b.setAttribute('aria-selected', b === btn ? 'true' : 'false'); });
+  updateItems();
+}));
+search.addEventListener('input', updateItems);
+
+const modal = document.getElementById('modal');
+const closeBtn = modal.querySelector('.modal-close');
+let previousFocus;
+document.querySelectorAll('.open-detail').forEach(btn => btn.addEventListener('click', () => {
+  previousFocus = btn;
+  document.getElementById('detailImage').src = btn.dataset.image;
+  document.getElementById('detailImage').alt = btn.dataset.title;
+  document.getElementById('detailMeta').textContent = `${btn.dataset.category} / ${btn.dataset.date}`;
+  document.getElementById('modalTitle').textContent = btn.dataset.title;
+  document.getElementById('detailDescription').textContent = btn.dataset.description || '';
+  document.getElementById('promptText').value = btn.dataset.prompt || '';
+  document.getElementById('copyStatus').textContent = '';
+  modal.classList.add('open'); document.body.style.overflow = 'hidden'; closeBtn.focus();
+}));
+function closeModal(){modal.classList.remove('open');document.body.style.overflow='';if(previousFocus)previousFocus.focus();}
+closeBtn.addEventListener('click', closeModal);
+modal.addEventListener('click', e => {if(e.target === modal) closeModal();});
+document.addEventListener('keydown', e => {if(e.key === 'Escape' && modal.classList.contains('open')) closeModal();});
+document.getElementById('copyPrompt').addEventListener('click', async () => {
+  const text = document.getElementById('promptText').value;
+  const status = document.getElementById('copyStatus');
+  try {
+    if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(text);
+    else {
+      const area = document.getElementById('promptText'); area.focus(); area.select();
+      const ok = document.execCommand('copy');
+      if (!ok) throw new Error('copy failed');
+    }
+    status.textContent = '프롬프트를 복사했어요.';
+  } catch (e) {
+    status.textContent = '복사에 실패했어요. 프롬프트 칸을 선택해 직접 복사해 주세요.';
+  }
+});
+</script>
+</body>
+</html>
